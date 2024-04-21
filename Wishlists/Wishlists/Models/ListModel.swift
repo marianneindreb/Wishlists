@@ -10,12 +10,13 @@ import SwiftData
 import SwiftUI
 
 @Model
-class ListModel: ObservableObject {
+class ListModel: ObservableObject, Identifiable {
+    var id = UUID()
     var listTitle: String
     var listDescription: String
     var listItems: [ProductItem]
     
-    init(listTitle: String, listDescription: String, listItems: [ProductItem]) {
+    init(listTitle: String = "List Title", listDescription: String = "List description", listItems: [ProductItem] = []) {
         self.listTitle = listTitle
         self.listDescription = listDescription
         self.listItems = listItems
