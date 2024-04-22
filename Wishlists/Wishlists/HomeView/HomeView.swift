@@ -11,6 +11,8 @@ import SwiftData
 struct HomeView: View {
     @Environment(\.modelContext) var modelContext
     @Query var lists: [ListModel]
+    @StateObject var product = ProductItem()
+    @StateObject var list = ListModel()
     
     private func addList() {
         withAnimation {
@@ -19,21 +21,30 @@ struct HomeView: View {
         }
     }
     
+    private func deleteList(offsets: IndexSet) {
+        offsets.forEach { index in
+            modelContext.delete(lists[index])
+        }
+    }
+    
     var body: some View {
         NavigationStack {
            
                 ZStack {
                     Color.bg.edgesIgnoringSafeArea(.all)
-                    ScrollView {
+                    ScrollView(showsIndicators: false) {
                         ForEach(lists) { list in
                             NavigationLink {
                                 WishListView(list: list)
                             } label: {
-                                ListCellView(list: list)
+                                ListCellView(list: list, product: product)
                             }
                             .padding(5)
+                           // .scrollIndicators(.hidden)
                         }
+                        .onDelete(perform: deleteList)
                     }
+                    
                     Spacer()
                     
                     VStack {

@@ -24,13 +24,13 @@ class ListModel: ObservableObject, Identifiable {
     }
 
 @Model
-class ProductItem: Identifiable {
-    var image: String
+class ProductItem: ObservableObject, Identifiable {
+    var imageName: String
     var productTitle: String
     var productDescription: String
     
-    init(image: String, productTitle: String, productDescription: String) {
-        self.image = image
+    init(imageName: String = "", productTitle: String = "", productDescription: String = "") {
+        self.imageName = imageName
         self.productTitle = productTitle
         self.productDescription = productDescription
     }
