@@ -11,7 +11,8 @@ import Observation
 struct ListCellView: View {
     @Environment(\.modelContext) var modelContext
    // var product: ProductItem
-    var list = ListModel()
+    var list: ListModel
+    var product: ProductItem
     
     var body: some View {
             ZStack(alignment: .topTrailing) {
@@ -49,7 +50,7 @@ struct ListCellView: View {
                     Spacer()
                 }
                 .padding()
-                .frame(width: 350, height: 140)
+                .frame(width: 350, height: 130)
                 .background(.white)
                 .cornerRadius(5)
                 .shadow(color: Color.gray.opacity(0.1), radius: 10, x: 0, y: 5)
