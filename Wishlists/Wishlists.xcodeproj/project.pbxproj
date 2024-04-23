@@ -17,7 +17,7 @@
 		D96C46DE2BD551DE000DA2D2 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46DD2BD551DE000DA2D2 /* ListModel.swift */; };
 		D96C46E02BD552E8000DA2D2 /* WishListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46DF2BD552E8000DA2D2 /* WishListView.swift */; };
 		D96C46E22BD552F9000DA2D2 /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46E12BD552F9000DA2D2 /* ProductDetailView.swift */; };
-		D96C46E82BD554EE000DA2D2 /* ListItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46E72BD554EE000DA2D2 /* ListItemCellView.swift */; };
+		D96C46E82BD554EE000DA2D2 /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46E72BD554EE000DA2D2 /* ProductCardView.swift */; };
 		D96C46EB2BD55C2D000DA2D2 /* ListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46EA2BD55C2D000DA2D2 /* ListCellView.swift */; };
 		D96C46ED2BD56FF6000DA2D2 /* NewListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46EC2BD56FF6000DA2D2 /* NewListDetailView.swift */; };
 /* End PBXBuildFile section */
@@ -53,7 +53,7 @@
 		D96C46DD2BD551DE000DA2D2 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		D96C46DF2BD552E8000DA2D2 /* WishListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListView.swift; sourceTree = "<group>"; };
 		D96C46E12BD552F9000DA2D2 /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
-		D96C46E72BD554EE000DA2D2 /* ListItemCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemCellView.swift; sourceTree = "<group>"; };
+		D96C46E72BD554EE000DA2D2 /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
 		D96C46EA2BD55C2D000DA2D2 /* ListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellView.swift; sourceTree = "<group>"; };
 		D96C46EC2BD56FF6000DA2D2 /* NewListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,7 +179,7 @@
 		D96C46E92BD554F5000DA2D2 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				D96C46E72BD554EE000DA2D2 /* ListItemCellView.swift */,
+				D96C46E72BD554EE000DA2D2 /* ProductCardView.swift */,
 				D96C46EA2BD55C2D000DA2D2 /* ListCellView.swift */,
 			);
 			path = Components;
@@ -317,7 +317,7 @@
 			files = (
 				D96C46DE2BD551DE000DA2D2 /* ListModel.swift in Sources */,
 				D96C46EB2BD55C2D000DA2D2 /* ListCellView.swift in Sources */,
-				D96C46E82BD554EE000DA2D2 /* ListItemCellView.swift in Sources */,
+				D96C46E82BD554EE000DA2D2 /* ProductCardView.swift in Sources */,
 				D96C46E22BD552F9000DA2D2 /* ProductDetailView.swift in Sources */,
 				D96C46B62BD54855000DA2D2 /* HomeView.swift in Sources */,
 				D96C46B42BD54855000DA2D2 /* WishlistsApp.swift in Sources */,
