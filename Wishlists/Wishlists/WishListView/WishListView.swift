@@ -9,18 +9,16 @@ import SwiftUI
 import SwiftData
 
 struct WishListView: View {
-    var list: ListModel
-    
     var body: some View {
         NavigationStack {
             Text("Wishlist list")
-                .navigationTitle(list.listTitle)
+                .navigationTitle("WishLists")
         }
     }
         
         
 }
 
-//#Preview {
-//    WishListView()
-//}
+#Preview {
+    WishListView()
+}
