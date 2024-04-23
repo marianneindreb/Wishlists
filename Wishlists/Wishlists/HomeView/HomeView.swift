@@ -40,7 +40,6 @@ struct HomeView: View {
                                 ListCellView(list: list, product: product)
                             }
                             .padding(5)
-                           // .scrollIndicators(.hidden)
                         }
                         .onDelete(perform: deleteList)
                     }
@@ -57,12 +56,12 @@ struct HomeView: View {
                             }label: {
                                 ZStack {
                                     Circle()
-                                        .frame(width: 100)
+                                        .frame(width: 80)
                                         .foregroundStyle(.bg)
                                         .shadow(radius: 5)
                                     Image(systemName: "plus")
                                         .foregroundStyle(.black)
-                                        .font(.title)
+                                        .font(.subheadline)
                                         .fontWeight(.bold)
                                        
                                 }

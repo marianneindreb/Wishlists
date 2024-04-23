@@ -25,13 +25,20 @@ class ListModel: ObservableObject, Identifiable {
 
 @Model
 class ProductItem: ObservableObject, Identifiable {
-    var imageName: String
+    var imageData: Data?
     var productTitle: String
     var productDescription: String
+    var storeName: String
+    var websiteUrl: String
+    var productPrice: String
     
-    init(imageName: String = "", productTitle: String = "", productDescription: String = "") {
-        self.imageName = imageName
+    
+    init(imageData: Data? = nil, productTitle: String = "", productDescription: String = "", storeName: String = "", websiteUrl: String = "", productPrice: String = "") {
+        self.imageData = imageData
         self.productTitle = productTitle
         self.productDescription = productDescription
+        self.storeName = storeName
+        self.websiteUrl = websiteUrl
+        self.productPrice = productPrice
     }
 }

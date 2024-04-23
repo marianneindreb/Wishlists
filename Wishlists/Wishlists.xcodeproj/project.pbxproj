@@ -20,6 +20,7 @@
 		D96C46E82BD554EE000DA2D2 /* ProductCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46E72BD554EE000DA2D2 /* ProductCardView.swift */; };
 		D96C46EB2BD55C2D000DA2D2 /* ListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46EA2BD55C2D000DA2D2 /* ListCellView.swift */; };
 		D96C46ED2BD56FF6000DA2D2 /* NewListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46EC2BD56FF6000DA2D2 /* NewListDetailView.swift */; };
+		D96C46EF2BD80D18000DA2D2 /* AddNewProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46EE2BD80D18000DA2D2 /* AddNewProductDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		D96C46E72BD554EE000DA2D2 /* ProductCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCardView.swift; sourceTree = "<group>"; };
 		D96C46EA2BD55C2D000DA2D2 /* ListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellView.swift; sourceTree = "<group>"; };
 		D96C46EC2BD56FF6000DA2D2 /* NewListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewListDetailView.swift; sourceTree = "<group>"; };
+		D96C46EE2BD80D18000DA2D2 /* AddNewProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				D96C46E62BD554A4000DA2D2 /* ProductDetailView */,
 				D96C46E92BD554F5000DA2D2 /* Components */,
 				D96C46EC2BD56FF6000DA2D2 /* NewListDetailView.swift */,
+				D96C46EE2BD80D18000DA2D2 /* AddNewProductDetailView.swift */,
 			);
 			path = Wishlists;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				D96C46E82BD554EE000DA2D2 /* ProductCardView.swift in Sources */,
 				D96C46E22BD552F9000DA2D2 /* ProductDetailView.swift in Sources */,
 				D96C46B62BD54855000DA2D2 /* HomeView.swift in Sources */,
+				D96C46EF2BD80D18000DA2D2 /* AddNewProductDetailView.swift in Sources */,
 				D96C46B42BD54855000DA2D2 /* WishlistsApp.swift in Sources */,
 				D96C46ED2BD56FF6000DA2D2 /* NewListDetailView.swift in Sources */,
 				D96C46E02BD552E8000DA2D2 /* WishListView.swift in Sources */,
