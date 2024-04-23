@@ -10,16 +10,19 @@ import SwiftData
 
 struct WishListView: View {
     var list: ListModel
+    var product: ProductItem
     
     var body: some View {
         NavigationStack {
-            Text("Wishlist list")
-                .navigationTitle(list.listTitle)
+           ProductCardView(product: product)
+            }
         }
     }
+
+    
         
         
-}
+
 
 //#Preview {
 //    WishListView()
