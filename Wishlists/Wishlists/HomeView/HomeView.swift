@@ -35,7 +35,7 @@ struct HomeView: View {
                     ScrollView(showsIndicators: false) {
                         ForEach(lists) { list in
                             NavigationLink {
-                                WishListView(list: list)
+                                WishListView(list: list, product: product)
                             } label: {
                                 ListCellView(list: list, product: product)
                             }
