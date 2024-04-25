@@ -11,8 +11,12 @@ import SwiftData
 struct HomeView: View {
     @Environment(\.modelContext) var modelContext
     @Query var lists: [ListModel]
-    @StateObject var product = ProductItem()
+    
+   @StateObject var product = ProductItem()
+    //@StateObject var list = ListModel()
+   // @Query var products: [ProductItem]
     @StateObject var list = ListModel()
+   // @StateObject var vm = WishListViewModel()
     
     private func addList() {
         withAnimation {
@@ -21,11 +25,11 @@ struct HomeView: View {
         }
     }
     
-    private func deleteList(offsets: IndexSet) {
-        offsets.forEach { index in
-            modelContext.delete(lists[index])
-        }
-    }
+//    private func deleteList(offsets: IndexSet) {
+//        offsets.forEach { index in
+//            modelContext.delete(list[index])
+//        }
+//    }
     
     var body: some View {
         NavigationStack {
@@ -37,11 +41,11 @@ struct HomeView: View {
                             NavigationLink {
                                 WishListView(list: list, product: product)
                             } label: {
-                                ListCellView(list: list, product: product)
+                                ListCellView(list: list)
                             }
                             .padding(5)
                         }
-                        .onDelete(perform: deleteList)
+                       // .onDelete(perform: deleteList)
                     }
                     
                     Spacer()
@@ -70,7 +74,7 @@ struct HomeView: View {
                            
                         }
                     }
-                    .navigationTitle("WishLists")
+                    .navigationTitle($list.listTitle)
                 }
                 //            NavigationLink(destination: NewListDetailView()) {
                 //                ZStack {
@@ -90,7 +94,7 @@ struct HomeView: View {
     }
 
 
-#Preview {
-    HomeView()
-        .modelContainer(for: ListModel.self, inMemory: true)
-}
+//#Preview {
+//    HomeView(list: list)
+//        .modelContainer(for: ListModel.self, inMemory: true)
+//}

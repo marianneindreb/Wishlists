@@ -9,46 +9,56 @@ import SwiftUI
 import SwiftData
 
 struct WishListView: View {
-    var list: ListModel
+    @Environment(\.modelContext) var modelContext
+    @Bindable var list: ListModel
     var product: ProductItem
+    //var products: [ProductItem]
     
     @State private var showAddNewProduct = false
     
     var body: some View {
-        ZStack{
-            ProductCardView(product: product)
-            Spacer()
-            
-            VStack {
+        
+            ZStack{
+                Color.bg.edgesIgnoringSafeArea(.all)
+                
+                VStack {
+                    Text("List Description")
+                      Spacer()
+                    ProductItemList(list: list)
+                }
                 Spacer()
-                HStack {
+                
+                VStack {
                     Spacer()
-                    Button {
-                        showAddNewProduct = true
-                        
-                    }label: {
-                        ZStack {
-                            Circle()
-                                .frame(width: 80)
-                                .foregroundStyle(.bg)
-                                .shadow(radius: 5)
-                            Image(systemName: "plus")
-                                .foregroundStyle(.black)
-                                .font(.subheadline)
-                                .fontWeight(.bold)
+                    HStack {
+                        Spacer()
+                        Button {
+                            showAddNewProduct = true
                             
+                        }label: {
+                            ZStack {
+                                Circle()
+                                    .frame(width: 80)
+                                    .foregroundStyle(.bg)
+                                    .shadow(radius: 5)
+                                Image(systemName: "plus")
+                                    .foregroundStyle(.black)
+                                    .font(.subheadline)
+                                    .fontWeight(.bold)
+                                
+                            }
                         }
+                        .padding()
                     }
-                    .padding()
                 }
             }
+            .navigationTitle("Wishlist")
+            .sheet(isPresented: $showAddNewProduct, content: {
+                AddNewProductDetailView(list: list)
+            })
         }
-        .navigationTitle("Wishlist")
-        .sheet(isPresented: $showAddNewProduct, content: {
-            AddNewProductDetailView()
-        })
     }
-}
+
     
         
         
