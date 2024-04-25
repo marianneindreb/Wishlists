@@ -40,6 +40,19 @@ struct ProductDetailView: View {
             .padding(20)
         }
         .ignoresSafeArea()
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+//                NavigationLink(destination: ) {
+                    ZStack {
+                        Circle()
+                            .foregroundStyle(.white)
+                            .frame(width: 60)
+                        Image(systemName: "pencil")
+                            .foregroundStyle(.black)
+//                    }
+                }
+            }
+        }
     }
 }
 

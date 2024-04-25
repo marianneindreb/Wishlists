@@ -8,6 +8,7 @@ struct AddNewProductDetailView: View {
     @Environment(\.modelContext) var modelContext
 
     var list: ListModel
+    
 
     @State private var selectedImage: PhotosPickerItem?
     @State private var imageData: Data?
@@ -47,11 +48,21 @@ struct AddNewProductDetailView: View {
                             .frame(maxWidth: .infinity, maxHeight: 300)
                     }
 
-                    Section(header: Text("Photo")) {
-                        PhotosPicker(selection: $selectedImage, matching: .images, photoLibrary: .shared()) {
-                            Label("+ Add Photo", systemImage: "photo")
-                                .foregroundColor(.gray)
+                    Section(header: Text("Add Photo From")) {
+                        HStack {
+                            PhotosPicker(selection: $selectedImage, matching: .images, photoLibrary: .shared()) {
+                                Label("Photo library", systemImage: "photo")
+                                    .foregroundColor(.gray)
+                            }
+                            Spacer()
+                            Button {
+                                //
+                            } label: {
+                                Label("Unsplash", systemImage: "square.stack")
+                                    .foregroundColor(.gray)
+                            }
                         }
+                        .buttonStyle(BorderlessButtonStyle())
                     }
 
                     Section(header: Text("Name")) {

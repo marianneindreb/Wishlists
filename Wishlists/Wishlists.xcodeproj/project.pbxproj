@@ -23,7 +23,6 @@
 		D96C46EF2BD80D18000DA2D2 /* AddNewProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46EE2BD80D18000DA2D2 /* AddNewProductDetailView.swift */; };
 		D96C46F32BDA8EAE000DA2D2 /* ProductItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46F22BDA8EAE000DA2D2 /* ProductItemList.swift */; };
 		D96C46F52BDA9337000DA2D2 /* WishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46F42BDA9337000DA2D2 /* WishListViewModel.swift */; };
-		D96C46F72BDAB538000DA2D2 /* DeleteProductsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46F62BDAB538000DA2D2 /* DeleteProductsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +62,6 @@
 		D96C46EE2BD80D18000DA2D2 /* AddNewProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductDetailView.swift; sourceTree = "<group>"; };
 		D96C46F22BDA8EAE000DA2D2 /* ProductItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemList.swift; sourceTree = "<group>"; };
 		D96C46F42BDA9337000DA2D2 /* WishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewModel.swift; sourceTree = "<group>"; };
-		D96C46F62BDAB538000DA2D2 /* DeleteProductsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteProductsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +157,6 @@
 			children = (
 				D96C46DF2BD552E8000DA2D2 /* WishListView.swift */,
 				D96C46F22BDA8EAE000DA2D2 /* ProductItemList.swift */,
-				D96C46F62BDAB538000DA2D2 /* DeleteProductsView.swift */,
 			);
 			path = WishListView;
 			sourceTree = "<group>";
@@ -328,7 +325,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D96C46DE2BD551DE000DA2D2 /* ListModel.swift in Sources */,
-				D96C46F72BDAB538000DA2D2 /* DeleteProductsView.swift in Sources */,
 				D96C46F52BDA9337000DA2D2 /* WishListViewModel.swift in Sources */,
 				D96C46EB2BD55C2D000DA2D2 /* ListCellView.swift in Sources */,
 				D96C46E82BD554EE000DA2D2 /* ProductCardView.swift in Sources */,

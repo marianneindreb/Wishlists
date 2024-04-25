@@ -9,8 +9,6 @@ struct WishListView: View {
     @State private var showAddNewProduct = false
     @State private var showEditListAlert = false
     @State private var showDeleteActionSheet = false
-    @State private var selectedProductsToDelete: [ProductItem] = []
-    @State private var showProductsToDelete = false
     
     @State private var newListTitle = ""
     @State private var newListDescription = ""
@@ -18,17 +16,13 @@ struct WishListView: View {
     var body: some View {
         ZStack {
             Color.bg.edgesIgnoringSafeArea(.all)
-            VStack {
+            VStack(alignment: .leading) {
                 Text(list.listDescription)
+                    .padding(.leading, 18)
                 Spacer()
-                // Refresh the product list by filtering out deleted products
                 ProductItemList(list: list)
-                    .onAppear {
-                        list.listItems.removeAll { item in
-                            selectedProductsToDelete.contains(item)
-                        }
                     }
-            }
+         
             Spacer()
             VStack {
                 Spacer()
@@ -62,11 +56,17 @@ struct WishListView: View {
                     Button("Share List") {
                         // Add sharing functionality
                     }
-                    Button("Delete Options", role: .destructive) {
+                    Button("Delete List", role: .destructive) {
                         showDeleteActionSheet = true
                     }
                 } label: {
-                    Image(systemName: "ellipsis.circle")
+                    ZStack {
+                        Circle()
+                            .foregroundStyle(.white)
+                            .frame(width: 60)
+                        Image(systemName: "ellipsis")
+                            .foregroundStyle(.black)
+                    }
                 }
             }
         }
@@ -82,26 +82,17 @@ struct WishListView: View {
             }
             Button("Cancel", role: .cancel) {}
         }
-        .actionSheet(isPresented: $showDeleteActionSheet) {
-            ActionSheet(
-                title: Text("Delete Options"),
-                message: Text("Select what you want to delete"),
-                buttons: [
-                    .default(Text("Delete Selected Products")) {
-                        showProductsToDelete = true
-                    },
-                    .destructive(Text("Delete List")) {
-                        modelContext.delete(list)
-                    },
-                    .cancel()
-                ]
-            )
-        }
-        .sheet(isPresented: $showProductsToDelete) {
-            DeleteProductsView(
-                products: list.listItems,
-                list: list, selectedProducts: $selectedProductsToDelete
-            )
+        .confirmationDialog(
+            "Delete List",
+            isPresented: $showDeleteActionSheet,
+            titleVisibility: .visible
+        ) {
+            Button("Delete List", role: .destructive) {
+                modelContext.delete(list)
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("Only want to delete a product? Long press on the product to delete")
         }
     }
 }
