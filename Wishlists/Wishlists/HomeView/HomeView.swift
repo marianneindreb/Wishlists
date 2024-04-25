@@ -11,86 +11,79 @@ import SwiftData
 struct HomeView: View {
     @Environment(\.modelContext) var modelContext
     @Query var lists: [ListModel]
+
     @StateObject var product = ProductItem()
-    @StateObject var list = ListModel()
-    
+    @State var showAlert = false
+    @State private var newListTitle = ""
+    @State private var newListDescription = ""
+
     private func addList() {
         withAnimation {
-            let newList = ListModel()
+            let newList = ListModel(listTitle: newListTitle, listDescription: newListDescription)
             modelContext.insert(newList)
         }
     }
-    
+
     private func deleteList(offsets: IndexSet) {
         offsets.forEach { index in
             modelContext.delete(lists[index])
         }
     }
-    
+
     var body: some View {
-        NavigationStack {
-           
-                ZStack {
-                    Color.bg.edgesIgnoringSafeArea(.all)
-                    ScrollView(showsIndicators: false) {
-                        ForEach(lists) { list in
-                            NavigationLink {
-                                WishListView(list: list, product: product)
-                            } label: {
-                                ListCellView(list: list, product: product)
-                            }
-                            .padding(5)
+        NavigationView {
+            ZStack {
+                Color.bg.edgesIgnoringSafeArea(.all)
+                ScrollView(showsIndicators: false) {
+                    ForEach(lists) { list in
+                        NavigationLink(destination: WishListView(list: list, product: product)) {
+                            ListCellView(list: list)
                         }
-                        .onDelete(perform: deleteList)
+                        .padding(5)
                     }
-                    
-                    Spacer()
-                    
-                    VStack {
-                        Spacer()
-                        HStack {
-                            Spacer()
-                            Button {
-                                addList()
-                                
-                            }label: {
-                                ZStack {
-                                    Circle()
-                                        .frame(width: 80)
-                                        .foregroundStyle(.bg)
-                                        .shadow(radius: 5)
-                                    Image(systemName: "plus")
-                                        .foregroundStyle(.black)
-                                        .font(.subheadline)
-                                        .fontWeight(.bold)
-                                       
-                                }
-                            }
-                            .padding()
-                           
-                        }
-                    }
-                    .navigationTitle("WishLists")
                 }
-                //            NavigationLink(destination: NewListDetailView()) {
-                //                ZStack {
-                //                    Circle()
-                //                        .frame(width: 100)
-                //                        .foregroundStyle(.gray)
-                //                    Image(systemName: "plus")
-                //                        .foregroundStyle(.white)
-                //                        .font(.title)
-                //                        .fontWeight(.bold)
-                //                        .shadow(radius: 5)
-                //                }
-                //                .padding(.leading, 200)
-                //            }
+
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Button {
+                            showAlert = true
+                        } label: {
+                            ZStack {
+                                Circle()
+                                    .frame(width: 80)
+                                    .foregroundStyle(.bg)
+                                    .shadow(radius: 5)
+                                Image(systemName: "plus")
+                                    .foregroundStyle(.black)
+                                    .font(.subheadline)
+                                    .fontWeight(.bold)
+                            }
+                        }
+                        .padding()
+                        .alert("Add New List", isPresented: $showAlert) {
+                            TextField("List Title", text: $newListTitle)
+                                
+                            TextField("List Description", text: $newListDescription)
+                            Button("Add") {
+                                addList()
+                                newListTitle = ""
+                                newListDescription = ""
+                            }
+                            Button("Cancel", role: .cancel) {}
+                        }
+                    }
+                    .navigationTitle("My Wishlists")
+                }
             }
         }
     }
-
-
-#Preview {
-    HomeView()
-        .modelContainer(for: ListModel.self, inMemory: true)
 }
+
+    
+    //#Preview {
+    //    HomeView(list: list)
+    //        .modelContainer(for: ListModel.self, inMemory: true)
+    //}
+
