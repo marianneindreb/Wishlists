@@ -1,10 +1,3 @@
-//
-//  ProductDetailView.swift
-//  Wishlists
-//
-//  Created by Marianne Indrebø on 21/04/2024.
-//
-
 import SwiftUI
 import SwiftData
 
@@ -12,24 +5,20 @@ struct ProductDetailView: View {
     @Bindable var product: ProductItem
     
     var body: some View {
-        VStack{
-            GeometryReader { reader in
-                if let imageData = product.imageData, let uiImage = UIImage(data: imageData) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .scaledToFill()
-                        .offset(y: -reader.frame(in: .global).minY)
-                        .frame(width: UIScreen.main.bounds.width, height: reader.frame(in: .global).minY > 0 ? reader.frame(in: .global).minY + 390 : 300)
-                } else {
-                    Rectangle()
-                        .foregroundStyle(.bg)
-                        .offset(y: -reader.frame(in: .global).minY)
-                        .frame(width: UIScreen.main.bounds.width, height: reader.frame(in: .global).minY > 0 ? reader.frame(in: .global).minY + 390 : 300)
-                }
+        ScrollView {
+            if let imageData = product.imageData, let uiImage = UIImage(data: imageData) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: UIScreen.main.bounds.width, height: 500)
+                    .clipped()
+            } else {
+                Rectangle()
+                    .foregroundColor(Color.gray.opacity(0.1))
+                    .frame(width: UIScreen.main.bounds.width, height: 500)
             }
-            
-            VStack (alignment: .leading){
-                HStack{
+            VStack(alignment: .leading) {
+                HStack {
                     Text(product.productTitle)
                         .bold()
                     Spacer()
@@ -38,17 +27,19 @@ struct ProductDetailView: View {
                 }
                 Text(product.productBrand)
                     .font(.caption)
-                    .padding(.bottom)
+                    .padding(.bottom, 8)
                 Text(product.productDescription)
-                    .padding(.bottom)
+                    .padding(.bottom, 18)
                 Text(product.storeName)
+                    .font(.caption)
+                    .bold()
+                    .padding(.bottom, 4)
                 Text(product.websiteUrl)
                     .font(.footnote)
-                    .padding(.bottom)
-                
             }
-            .padding(30)
+            .padding(20)
         }
+        .ignoresSafeArea()
     }
 }
 

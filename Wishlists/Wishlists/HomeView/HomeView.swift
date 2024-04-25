@@ -41,7 +41,7 @@ struct HomeView: View {
                             NavigationLink {
                                 WishListView(list: list, product: product)
                             } label: {
-                                ListCellView(list: list, product: product)
+                                ListCellView(list: list)
                             }
                             .padding(5)
                         }

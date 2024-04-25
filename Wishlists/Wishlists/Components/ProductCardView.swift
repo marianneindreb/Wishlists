@@ -9,47 +9,46 @@ struct ProductCardView: View {
     @Environment(\.modelContext) var modelContext
     
     var body: some View {
-       
-            VStack {
-                if let imageData = product.imageData, let uiImage = UIImage(data: imageData) {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 160, height: 165)
-                
-                } else {
-                    Rectangle()
-                        .foregroundStyle(Color.gray.opacity(0.1))
-                        .frame(width: 160, height: 165)
-                }
-   
-           //     Spacer()
+        VStack {
+            if let imageData = product.imageData, let uiImage = UIImage(data: imageData) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 160, height: 165)
+                    .clipped()   
+            } else {
+                Rectangle()
+                    .foregroundStyle(Color.gray.opacity(0.1))
+                    .frame(width: 160, height: 165)
+            }
+            NavigationLink(destination: ProductDetailView(product: product)) {
                 HStack {
                     VStack(alignment: .leading) {
-                        Text("product.productTitle")
-                            .font(.caption)
-                            .bold()
-                            .foregroundStyle(.black)
+                        HStack{
+                            Text(product.productTitle)
+                                .font(.subheadline)
+                                .bold()
+                                .foregroundStyle(.black)
+                            Spacer()
+                            Image(systemName: "arrow.right")
+                                .foregroundStyle(.black)
+                        }
                         Text(product.productBrand)
                             .font(.caption2)
                             .foregroundStyle(.gray)
                     }
-                    .frame(width: 130)
-                    Spacer()
-                    NavigationLink(destination: ProductDetailView(product: product)) {
-                        Image(systemName: "arrow.right")
-                            .foregroundStyle(.black)
-                    }
+                    
+                    .padding(.horizontal, 5)
                 }
-                    .padding(2)
-                Spacer()
             }
-            .frame(width: 160, height: 220)
-            .background(.white)
-            .cornerRadius(5)
-            .shadow(color: Color.gray.opacity(0.1), radius: 10, x: 0, y: 5)
+            Spacer()
         }
+        .frame(width: 160, height: 220)
+        .background(.white)
+        .cornerRadius(5)
+        .shadow(color: Color.gray.opacity(0.1), radius: 10, x: 0, y: 5)
     }
+}
 
 
 

@@ -21,10 +21,6 @@ class ListModel: ObservableObject, Identifiable {
         self.listDescription = listDescription
         self.listItems = listItems
     }
-    
-//    static var emptyList: ListModel {
-//        ListModel(listTitle: "", listDescription: "", listItems: [])
-//    }
     }
 
 @Model
