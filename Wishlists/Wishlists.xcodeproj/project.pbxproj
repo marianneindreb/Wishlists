@@ -24,6 +24,7 @@
 		D96C46F32BDA8EAE000DA2D2 /* ProductItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46F22BDA8EAE000DA2D2 /* ProductItemList.swift */; };
 		D96C46F52BDA9337000DA2D2 /* WishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46F42BDA9337000DA2D2 /* WishListViewModel.swift */; };
 		D97BB66B2BDBCF53009B8119 /* Brown Sugar .ttf in Resources */ = {isa = PBXBuildFile; fileRef = D97BB66A2BDBCF53009B8119 /* Brown Sugar .ttf */; };
+		D99400292BDC28D500704FEB /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99400282BDC28D500704FEB /* SplashScreenView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		D97BB6672BDBCD75009B8119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D97BB6682BDBCF34009B8119 /* Brown Sugar .ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Brown Sugar .ttf"; path = "../../../../Desktop/Wants/Brown-Sugar/Brown Sugar .ttf"; sourceTree = "<group>"; };
 		D97BB66A2BDBCF53009B8119 /* Brown Sugar .ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Brown Sugar .ttf"; path = "../../../../Desktop/Wants/Brown-Sugar/Brown Sugar .ttf"; sourceTree = "<group>"; };
+		D99400282BDC28D500704FEB /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				D96C46EC2BD56FF6000DA2D2 /* NewListDetailView.swift */,
 				D96C46EE2BD80D18000DA2D2 /* AddNewProductDetailView.swift */,
 				D96C46F42BDA9337000DA2D2 /* WishListViewModel.swift */,
+				D99400282BDC28D500704FEB /* SplashScreenView.swift */,
 			);
 			path = Wishlists;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				D96C46B42BD54855000DA2D2 /* WishlistsApp.swift in Sources */,
 				D96C46ED2BD56FF6000DA2D2 /* NewListDetailView.swift in Sources */,
 				D96C46E02BD552E8000DA2D2 /* WishListView.swift in Sources */,
+				D99400292BDC28D500704FEB /* SplashScreenView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
