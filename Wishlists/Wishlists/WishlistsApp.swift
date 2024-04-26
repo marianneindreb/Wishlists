@@ -12,7 +12,7 @@ import SwiftData
 struct WishlistsApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            SplashScreenView()
         }
         .modelContainer(for: ListModel.self)
     }
