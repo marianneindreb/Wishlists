@@ -6,6 +6,7 @@ struct WishListView: View {
     @Environment(\.dismiss) var dismiss
     @Bindable var list: ListModel
     var product: ProductItem
+    //var products: [ProductItem]
     
     @State private var showAddNewProduct = false
     @State private var showEditListAlert = false
@@ -27,7 +28,8 @@ struct WishListView: View {
             Spacer()
             VStack {
                 Spacer()
-                HStack {
+                
+                VStack {
                     Spacer()
                     Button {
                         showAddNewProduct = true
@@ -42,10 +44,15 @@ struct WishListView: View {
                                 .foregroundStyle(.black)
                                 
                         }
+                        .padding()
                     }
                     .padding(30)
                 }
             }
+            .navigationTitle("Wishlist")
+            .sheet(isPresented: $showAddNewProduct, content: {
+                AddNewProductDetailView(list: list)
+            })
         }
         
         .navigationTitle(list.listTitle)
