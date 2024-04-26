@@ -3,6 +3,7 @@ import SwiftData
 
 struct WishListView: View {
     @Environment(\.modelContext) var modelContext
+    @Environment(\.dismiss) var dismiss
     @Bindable var list: ListModel
     var product: ProductItem
     
@@ -33,21 +34,31 @@ struct WishListView: View {
                     } label: {
                         ZStack {
                             Circle()
-                                .frame(width: 80)
-                                .foregroundStyle(.bg)
-                                .shadow(radius: 5)
+                                .frame(width: 90)
+                                .foregroundStyle(.white)
+                                .shadow(color: Color.gray.opacity(0.1), radius: 10, x: 0, y: 5)
                             Image(systemName: "plus")
+                                .font(.system(size: 18))
                                 .foregroundStyle(.black)
-                                .font(.subheadline)
-                                .fontWeight(.bold)
+                                
                         }
                     }
-                    .padding()
+                    .padding(30)
                 }
             }
         }
+        
         .navigationTitle(list.listTitle)
+        .navigationBarBackButtonHidden(true)
         .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "arrow.left")
+                        .foregroundStyle(.black)
+                }
+            }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
                     Button("Edit List") {
@@ -60,13 +71,11 @@ struct WishListView: View {
                         showDeleteActionSheet = true
                     }
                 } label: {
-                    ZStack {
-                        Circle()
-                            .foregroundStyle(.white)
-                            .frame(width: 60)
+                   
+                       
                         Image(systemName: "ellipsis")
                             .foregroundStyle(.black)
-                    }
+                    
                 }
             }
         }

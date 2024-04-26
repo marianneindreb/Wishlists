@@ -52,16 +52,16 @@ struct HomeView: View {
                         } label: {
                             ZStack {
                                 Circle()
-                                    .frame(width: 80)
-                                    .foregroundStyle(.bg)
-                                    .shadow(radius: 5)
+                                    .frame(width: 90)
+                                    .foregroundStyle(.white)
+                                    .shadow(color: Color.gray.opacity(0.1), radius: 10, x: 0, y: 5)
                                 Image(systemName: "plus")
+                                    .font(.system(size: 18))
                                     .foregroundStyle(.black)
-                                    .font(.subheadline)
-                                    .fontWeight(.bold)
+                                    
                             }
                         }
-                        .padding()
+                        .padding(30)
                         .alert("Add New List", isPresented: $showAlert) {
                             TextField("List Title", text: $newListTitle)
                                 
@@ -74,7 +74,15 @@ struct HomeView: View {
                             Button("Cancel", role: .cancel) {}
                         }
                     }
-                    .navigationTitle("My Wishlists")
+                    .navigationTitle("Wants")
+                    .toolbar {
+                        ToolbarItem(placement: .principal) {
+                            Image("logo")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 24)
+                        }
+                    }
                 }
             }
         }

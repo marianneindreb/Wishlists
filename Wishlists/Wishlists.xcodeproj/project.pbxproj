@@ -23,6 +23,7 @@
 		D96C46EF2BD80D18000DA2D2 /* AddNewProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46EE2BD80D18000DA2D2 /* AddNewProductDetailView.swift */; };
 		D96C46F32BDA8EAE000DA2D2 /* ProductItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46F22BDA8EAE000DA2D2 /* ProductItemList.swift */; };
 		D96C46F52BDA9337000DA2D2 /* WishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46F42BDA9337000DA2D2 /* WishListViewModel.swift */; };
+		D97BB66B2BDBCF53009B8119 /* Brown Sugar .ttf in Resources */ = {isa = PBXBuildFile; fileRef = D97BB66A2BDBCF53009B8119 /* Brown Sugar .ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,10 @@
 		D96C46EE2BD80D18000DA2D2 /* AddNewProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductDetailView.swift; sourceTree = "<group>"; };
 		D96C46F22BDA8EAE000DA2D2 /* ProductItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemList.swift; sourceTree = "<group>"; };
 		D96C46F42BDA9337000DA2D2 /* WishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewModel.swift; sourceTree = "<group>"; };
+		D97BB6652BDBCD05009B8119 /* Brown Sugar .ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brown Sugar .ttf"; sourceTree = "<group>"; };
+		D97BB6672BDBCD75009B8119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D97BB6682BDBCF34009B8119 /* Brown Sugar .ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Brown Sugar .ttf"; path = "../../../../Desktop/Wants/Brown-Sugar/Brown Sugar .ttf"; sourceTree = "<group>"; };
+		D97BB66A2BDBCF53009B8119 /* Brown Sugar .ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Brown Sugar .ttf"; path = "../../../../Desktop/Wants/Brown-Sugar/Brown Sugar .ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +117,7 @@
 		D96C46B22BD54855000DA2D2 /* Wishlists */ = {
 			isa = PBXGroup;
 			children = (
+				D97BB6672BDBCD75009B8119 /* Info.plist */,
 				D96C46B32BD54855000DA2D2 /* WishlistsApp.swift */,
 				D96C46B72BD54856000DA2D2 /* Assets.xcassets */,
 				D96C46B92BD54856000DA2D2 /* Preview Content */,
@@ -146,6 +152,9 @@
 		D96C46CD2BD54856000DA2D2 /* WishlistsUITests */ = {
 			isa = PBXGroup;
 			children = (
+				D97BB6652BDBCD05009B8119 /* Brown Sugar .ttf */,
+				D97BB6682BDBCF34009B8119 /* Brown Sugar .ttf */,
+				D97BB66A2BDBCF53009B8119 /* Brown Sugar .ttf */,
 				D96C46CE2BD54856000DA2D2 /* WishlistsUITests.swift */,
 				D96C46D02BD54856000DA2D2 /* WishlistsUITestsLaunchTests.swift */,
 			);
@@ -298,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D97BB66B2BDBCF53009B8119 /* Brown Sugar .ttf in Resources */,
 				D96C46BB2BD54856000DA2D2 /* Preview Assets.xcassets in Resources */,
 				D96C46B82BD54856000DA2D2 /* Assets.xcassets in Resources */,
 			);
@@ -501,6 +511,7 @@
 				DEVELOPMENT_TEAM = HLDX6SAH8N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Wishlists/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -530,6 +541,7 @@
 				DEVELOPMENT_TEAM = HLDX6SAH8N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Wishlists/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

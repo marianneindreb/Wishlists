@@ -20,7 +20,7 @@ struct AddNewProductDetailView: View {
     @State private var productPrice: String = ""
 
     func saveProduct() {
-        withAnimation {
+      
             let newProduct = ProductItem(
                 imageData: imageData,
                 productTitle: productTitle,
@@ -33,7 +33,7 @@ struct AddNewProductDetailView: View {
 
             list.listItems.append(newProduct)
             modelContext.insert(newProduct)
-        }
+        
     }
 
     var body: some View {
@@ -94,20 +94,25 @@ struct AddNewProductDetailView: View {
                         Button {
                             dismiss()
                         } label: {
-                            Label("Cancel", systemImage: "xmark")
-                                .labelStyle(.iconOnly)
+                            Image(systemName: "xmark")
+                                .foregroundStyle(.black)
                         }
                     }
 
                     ToolbarItem(placement: .topBarTrailing) {
+                        let buttonDisabled = productTitle.isEmpty
+                        
                         Button {
-                            saveProduct()
-                            dismiss()
+                            if !buttonDisabled {
+                                saveProduct()
+                                dismiss()
+                            }
                         } label: {
-                            Label("Save", systemImage: "checkmark")
-                                .labelStyle(.iconOnly)
+                            Image(systemName: "checkmark")
+                                .foregroundStyle(.black)
+                                .opacity(buttonDisabled ? 0.2 : 1.0)
                         }
-                        .disabled(productTitle.isEmpty)
+                        .disabled(buttonDisabled)
                     }
                 }
 

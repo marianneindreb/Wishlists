@@ -3,6 +3,7 @@ import SwiftData
 
 struct ProductDetailView: View {
     @Bindable var product: ProductItem
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         ScrollView {
@@ -40,16 +41,16 @@ struct ProductDetailView: View {
             .padding(20)
         }
         .ignoresSafeArea()
+        .navigationBarBackButtonHidden(true)
+         
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-//                NavigationLink(destination: ) {
-                    ZStack {
-                        Circle()
-                            .foregroundStyle(.white)
-                            .frame(width: 60)
-                        Image(systemName: "pencil")
-                            .foregroundStyle(.black)
-//                    }
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                        Image(systemName: "arrow.backward.circle.fill")
+                        .font(.system(size: 24))
+                            .foregroundStyle(.bg)
                 }
             }
         }

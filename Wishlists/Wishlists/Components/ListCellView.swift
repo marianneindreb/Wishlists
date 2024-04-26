@@ -8,12 +8,12 @@ struct ListCellView: View {
             VStack(alignment: .leading) {
                 HStack{
                     Text(list.listTitle)
-                        .font(.subheadline)
                         .foregroundStyle(.black)
                         .bold()
                         .padding(.top, 15)
                     Spacer()
                     Image(systemName: "arrow.right")
+                        .font(.system(size: 14))
                         .foregroundStyle(.black)
                 }
                 Text(list.listDescription)

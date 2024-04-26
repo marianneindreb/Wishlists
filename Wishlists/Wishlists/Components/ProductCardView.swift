@@ -7,6 +7,15 @@ struct ProductCardView: View {
     var product: ProductItem
     var list: ListModel
 
+//    private func deleteItem(_ product: ProductItem) {
+//        do {
+//            modelContext.delete(product)
+//            try modelContext.save()
+//        } catch {
+//            print("Error deleting product")
+//        }
+//    }
+    
     var body: some View {
         VStack {
             if let imageData = product.imageData, let uiImage = UIImage(data: imageData) {
@@ -54,7 +63,14 @@ struct ProductCardView: View {
                     titleVisibility: .visible
                 ) {
                     Button("Delete", role: .destructive) {
-                       // modelContext.delete(product)
+                        modelContext.delete(product)
+                      //  deleteItem(product)
+                        do {
+                            try modelContext.save()
+                        } catch {
+                            print("Error saving")
+                        }
+                        
                     }
                     Button("Cancel", role: .cancel) {}
                 }
