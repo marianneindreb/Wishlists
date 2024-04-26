@@ -89,9 +89,3 @@ struct HomeView: View {
     }
 }
 
-    
-    //#Preview {
-    //    HomeView(list: list)
-    //        .modelContainer(for: ListModel.self, inMemory: true)
-    //}
-
