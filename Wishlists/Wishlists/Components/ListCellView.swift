@@ -8,12 +8,12 @@ struct ListCellView: View {
             VStack(alignment: .leading) {
                 HStack{
                     Text(list.listTitle)
-                        .font(.subheadline)
                         .foregroundStyle(.black)
                         .bold()
                         .padding(.top, 15)
                     Spacer()
                     Image(systemName: "arrow.right")
+                        .font(.system(size: 14))
                         .foregroundStyle(.black)
                 }
                 Text(list.listDescription)
@@ -21,9 +21,6 @@ struct ListCellView: View {
                     .foregroundStyle(.black)
                 
                 Spacer()
-                
-                
-                let productImages = list.listItems.prefix(4)
                 
                 HStack() {
                     ForEach(0..<4, id: \.self) { index in
@@ -40,6 +37,9 @@ struct ListCellView: View {
                                 .cornerRadius(2)
                         }
                     }
+//                    .onDelete { (indexSet) in
+//                        self.list.listItems.remove(atOffsets: indexSet)
+//                    }
                 }
                 
                 Spacer()

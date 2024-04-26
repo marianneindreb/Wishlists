@@ -1,26 +1,24 @@
-//
-//  ProductItemList.swift
-//  Wishlists
-//
-//  Created by Marianne Indrebø on 25/04/2024.
-//
-
 import SwiftUI
+import SwiftData
 
 struct ProductItemList: View {
     var list: ListModel
-    
+    @Environment(\.modelContext) var modelContext
+  
+
     var body: some View {
         if !list.listItems.isEmpty {
-            ScrollView{
+            ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 160))], spacing: 18) {
                     ForEach(list.listItems) { product in
                         ProductCardView(product: product, list: list)
                     }
+                   
+                    
                 }
                 .padding(18)
             }
-            
+           
         } else {
             VStack {
                 Spacer()
@@ -32,5 +30,5 @@ struct ProductItemList: View {
 }
 
 //#Preview {
-//    ProductItemList()
-//}
+//    ProductItemList(list: ListModel()) // Example preview data
+
