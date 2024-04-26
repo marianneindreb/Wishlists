@@ -1,4 +1,3 @@
 *.xcscmblueprint
 *.xccheckout
 Wishlists/Wishlists.xcodeproj/project.xcworkspace/xcuserdata/*
-git rm --cached Wishlists/Wishlists.xcodeproj/project.xcworkspace/xcuserdata/*
