@@ -16,9 +16,6 @@ struct SplashScreenView: View {
         if isActive {
             HomeView()
         } else {
-            
-            
-            
             ZStack{
                 Color.bg.edgesIgnoringSafeArea(.all)
                 VStack{

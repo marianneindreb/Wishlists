@@ -18,46 +18,40 @@ struct WishListView: View {
     var body: some View {
         ZStack {
             Color.bg.edgesIgnoringSafeArea(.all)
-            VStack(alignment: .leading) {
-                Text(list.listDescription)
-                    .padding(.leading, 18)
+            
+            VStack {
+                if !list.listItems.isEmpty{
+                    ProductItemList(list: list)
+                } else {
+                    Spacer()
+                    Text("No products added")
+                    Spacer()
+                }
                 Spacer()
-                ProductItemList(list: list)
-                    }
-         
+            }
             Spacer()
             VStack {
                 Spacer()
-                
-                VStack {
+                HStack {
                     Spacer()
-                    Button {
+                    CustomAddButton {
                         showAddNewProduct = true
-                    } label: {
-                        ZStack {
-                            Circle()
-                                .frame(width: 90)
-                                .foregroundStyle(.white)
-                                .shadow(color: Color.gray.opacity(0.1), radius: 10, x: 0, y: 5)
-                            Image(systemName: "plus")
-                                .font(.system(size: 18))
-                                .foregroundStyle(.black)
-                                
-                        }
-                        .padding()
                     }
-                    .padding(30)
+                    .accessibilityLabel("Button to add new product")
                 }
             }
-            .navigationTitle("Wishlist")
-            .sheet(isPresented: $showAddNewProduct, content: {
-                AddNewProductDetailView(list: list)
-            })
         }
         
-        .navigationTitle(list.listTitle)
+       .navigationTitle(list.listTitle)
         .navigationBarBackButtonHidden(true)
+        .sheet(isPresented: $showAddNewProduct, content: {
+            AddNewProductDetailView(list: list)
+        })
         .toolbar {
+            ToolbarItem(placement: .principal) {
+                    Text(list.listDescription)
+                        .font(.subheadline)
+            }
             ToolbarItem(placement: .topBarLeading) {
                 Button {
                     dismiss()
@@ -65,25 +59,27 @@ struct WishListView: View {
                     Image(systemName: "arrow.left")
                         .foregroundStyle(.black)
                 }
+                .accessibilityLabel("go back to previous")
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
                     Button("Edit List") {
                         showEditListAlert = true
                     }
+                    .accessibilityLabel("Edit list")
                     Button("Share List") {
                         // Add sharing functionality
                     }
+                    .accessibilityLabel("Share list")
                     Button("Delete List", role: .destructive) {
                         showDeleteActionSheet = true
                     }
+                    .accessibilityLabel("Delete list with options")
                 } label: {
-                   
-                       
-                        Image(systemName: "ellipsis")
-                            .foregroundStyle(.black)
-                    
+                    Image(systemName: "ellipsis")
+                        .foregroundStyle(.black)
                 }
+                .accessibilityLabel("Menu to edit, delete, or share list")
             }
         }
         .sheet(isPresented: $showAddNewProduct) {

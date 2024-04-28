@@ -21,6 +21,7 @@ struct ProductDetailView: View {
             VStack(alignment: .leading) {
                 HStack {
                     Text(product.productTitle)
+                        .font(.custom("Brown Sugar", size: 24))
                         .bold()
                     Spacer()
                     Text(product.productPrice)
@@ -34,7 +35,7 @@ struct ProductDetailView: View {
                 Text(product.storeName)
                     .font(.caption)
                     .bold()
-                    .padding(.bottom, 4)
+                    .padding(.bottom, 2)
                 Text(product.websiteUrl)
                     .font(.footnote)
             }
@@ -52,6 +53,7 @@ struct ProductDetailView: View {
                         .font(.system(size: 24))
                             .foregroundStyle(.bg)
                 }
+                .accessibilityLabel("go back")
             }
         }
     }
