@@ -21,7 +21,7 @@ struct ProductDetailView: View {
             VStack(alignment: .leading) {
                 HStack {
                     Text(product.productTitle)
-                        .font(.custom("Brown Sugar", size: 24))
+                        .font(.headline)
                         .bold()
                     Spacer()
                     Text(product.productPrice)

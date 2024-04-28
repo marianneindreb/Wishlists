@@ -7,9 +7,12 @@ struct AddNewProductDetailView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) var modelContext
 
+    @ObservedObject var vm = UnsplashViewModel()
     var list: ListModel
     
-
+    @State private var searchText = ""
+    @State private var showUnsplashSheet = false
+    @State private var unsplashImageData: Data?
     @State private var selectedImage: PhotosPickerItem?
     @State private var imageData: Data?
     @State private var productTitle: String = ""
@@ -22,7 +25,7 @@ struct AddNewProductDetailView: View {
     func saveProduct() {
       
             let newProduct = ProductItem(
-                imageData: imageData,
+                imageData: unsplashImageData ?? imageData,
                 productTitle: productTitle,
                 productDescription: productDescription,
                 productBrand: productBrand,
@@ -41,12 +44,12 @@ struct AddNewProductDetailView: View {
             ZStack {
                 Color.bg.edgesIgnoringSafeArea(.all)
                 Form {
-                    if let imageData = imageData, let uiImage = UIImage(data: imageData) {
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(maxWidth: .infinity, maxHeight: 300)
-                    }
+                    if let uiImage = (unsplashImageData ?? imageData).flatMap({ UIImage(data: $0) }) {
+                                          Image(uiImage: uiImage)
+                                              .resizable()
+                                              .scaledToFill()
+                                              .frame(maxWidth: .infinity, maxHeight: 300)
+                                      }
 
                     Section(header: Text("Add Photo From")) {
                         HStack {
@@ -56,10 +59,13 @@ struct AddNewProductDetailView: View {
                             }
                             Spacer()
                             Button {
-                                //
+                                showUnsplashSheet = true
                             } label: {
-                                Label("Unsplash", systemImage: "square.stack")
+                                Label("Unsplash", systemImage: "photo")
                                     .foregroundColor(.gray)
+                            }
+                            .sheet(isPresented: $showUnsplashSheet) {
+                                UnsplashSearchView(vm: vm, selectedImageData: $unsplashImageData)
                             }
                         }
                         .buttonStyle(BorderlessButtonStyle())
