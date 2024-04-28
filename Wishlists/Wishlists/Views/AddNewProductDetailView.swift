@@ -97,6 +97,7 @@ struct AddNewProductDetailView: View {
                             Image(systemName: "xmark")
                                 .foregroundStyle(.black)
                         }
+                        .accessibilityLabel("Dismiss")
                     }
 
                     ToolbarItem(placement: .topBarTrailing) {
@@ -112,6 +113,7 @@ struct AddNewProductDetailView: View {
                                 .foregroundStyle(.black)
                                 .opacity(buttonDisabled ? 0.2 : 1.0)
                         }
+                        .accessibilityLabel("Save")
                         .disabled(buttonDisabled)
                     }
                 }
