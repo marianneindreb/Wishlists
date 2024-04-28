@@ -26,6 +26,12 @@
 		D99400292BDC28D500704FEB /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99400282BDC28D500704FEB /* SplashScreenView.swift */; };
 		D9A60C4F2BDD394C00724EB2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A60C4E2BDD394C00724EB2 /* HomeViewModel.swift */; };
 		D9A60C512BDD419700724EB2 /* CustomAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A60C502BDD419700724EB2 /* CustomAddButton.swift */; };
+		D9A60C542BDE79CF00724EB2 /* UnsplashPhotoPicker in Frameworks */ = {isa = PBXBuildFile; productRef = D9A60C532BDE79CF00724EB2 /* UnsplashPhotoPicker */; };
+		D9A60C572BDE7C7F00724EB2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A60C562BDE7C7F00724EB2 /* NetworkManager.swift */; };
+		D9A60C592BDE7C8800724EB2 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A60C582BDE7C8800724EB2 /* Alerts.swift */; };
+		D9A60C5B2BDE7D2900724EB2 /* UnsplashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A60C5A2BDE7D2900724EB2 /* UnsplashModel.swift */; };
+		D9A60C5D2BDE7E7A00724EB2 /* UnsplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A60C5C2BDE7E7A00724EB2 /* UnsplashViewModel.swift */; };
+		D9A60C5F2BDE89AD00724EB2 /* UnsplashSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A60C5E2BDE89AD00724EB2 /* UnsplashSearchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +77,11 @@
 		D99400282BDC28D500704FEB /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		D9A60C4E2BDD394C00724EB2 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D9A60C502BDD419700724EB2 /* CustomAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAddButton.swift; sourceTree = "<group>"; };
+		D9A60C562BDE7C7F00724EB2 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D9A60C582BDE7C8800724EB2 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		D9A60C5A2BDE7D2900724EB2 /* UnsplashModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashModel.swift; sourceTree = "<group>"; };
+		D9A60C5C2BDE7E7A00724EB2 /* UnsplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashViewModel.swift; sourceTree = "<group>"; };
+		D9A60C5E2BDE89AD00724EB2 /* UnsplashSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashSearchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9A60C542BDE79CF00724EB2 /* UnsplashPhotoPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +133,7 @@
 		D96C46B22BD54855000DA2D2 /* Wishlists */ = {
 			isa = PBXGroup;
 			children = (
+				D9A60C552BDE7C6D00724EB2 /* Network */,
 				D9A60C4D2BDD389800724EB2 /* Screens */,
 				D96C46E52BD55497000DA2D2 /* Models */,
 				D9A60C4B2BDD37FA00724EB2 /* Views */,
@@ -130,6 +143,7 @@
 				D96C46B92BD54856000DA2D2 /* Preview Content */,
 				D96C46E92BD554F5000DA2D2 /* Components */,
 				D96C46F42BDA9337000DA2D2 /* WishListViewModel.swift */,
+				D9A60C5C2BDE7E7A00724EB2 /* UnsplashViewModel.swift */,
 			);
 			path = Wishlists;
 			sourceTree = "<group>";
@@ -184,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				D96C46DD2BD551DE000DA2D2 /* ListModel.swift */,
+				D9A60C5A2BDE7D2900724EB2 /* UnsplashModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -211,6 +226,7 @@
 			children = (
 				D96C46EE2BD80D18000DA2D2 /* AddNewProductDetailView.swift */,
 				D99400282BDC28D500704FEB /* SplashScreenView.swift */,
+				D9A60C5E2BDE89AD00724EB2 /* UnsplashSearchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -223,6 +239,15 @@
 				D96C46E62BD554A4000DA2D2 /* ProductDetailView */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		D9A60C552BDE7C6D00724EB2 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D9A60C562BDE7C7F00724EB2 /* NetworkManager.swift */,
+				D9A60C582BDE7C8800724EB2 /* Alerts.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +266,9 @@
 			dependencies = (
 			);
 			name = Wishlists;
+			packageProductDependencies = (
+				D9A60C532BDE79CF00724EB2 /* UnsplashPhotoPicker */,
+			);
 			productName = Wishlists;
 			productReference = D96C46B02BD54855000DA2D2 /* Wishlists.app */;
 			productType = "com.apple.product-type.application";
@@ -313,6 +341,9 @@
 				Base,
 			);
 			mainGroup = D96C46A72BD54855000DA2D2;
+			packageReferences = (
+				D9A60C522BDE79CF00724EB2 /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios" */,
+			);
 			productRefGroup = D96C46B12BD54855000DA2D2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -357,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D96C46DE2BD551DE000DA2D2 /* ListModel.swift in Sources */,
+				D9A60C592BDE7C8800724EB2 /* Alerts.swift in Sources */,
 				D96C46F52BDA9337000DA2D2 /* WishListViewModel.swift in Sources */,
 				D96C46EB2BD55C2D000DA2D2 /* ListCellView.swift in Sources */,
 				D96C46E82BD554EE000DA2D2 /* ProductCardView.swift in Sources */,
@@ -366,7 +398,11 @@
 				D96C46B62BD54855000DA2D2 /* HomeView.swift in Sources */,
 				D9A60C4F2BDD394C00724EB2 /* HomeViewModel.swift in Sources */,
 				D96C46EF2BD80D18000DA2D2 /* AddNewProductDetailView.swift in Sources */,
+				D9A60C572BDE7C7F00724EB2 /* NetworkManager.swift in Sources */,
+				D9A60C5F2BDE89AD00724EB2 /* UnsplashSearchView.swift in Sources */,
 				D96C46B42BD54855000DA2D2 /* WishlistsApp.swift in Sources */,
+				D9A60C5B2BDE7D2900724EB2 /* UnsplashModel.swift in Sources */,
+				D9A60C5D2BDE7E7A00724EB2 /* UnsplashViewModel.swift in Sources */,
 				D96C46E02BD552E8000DA2D2 /* WishListView.swift in Sources */,
 				D99400292BDC28D500704FEB /* SplashScreenView.swift in Sources */,
 			);
@@ -696,6 +732,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D9A60C522BDE79CF00724EB2 /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/unsplash/unsplash-photopicker-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D9A60C532BDE79CF00724EB2 /* UnsplashPhotoPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D9A60C522BDE79CF00724EB2 /* XCRemoteSwiftPackageReference "unsplash-photopicker-ios" */;
+			productName = UnsplashPhotoPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D96C46A82BD54855000DA2D2 /* Project object */;
 }
