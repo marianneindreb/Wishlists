@@ -71,24 +71,23 @@ struct AddNewProductDetailView: View {
                         .buttonStyle(BorderlessButtonStyle())
                     }
 
-                    Section(header: Text("Name")) {
+                    Section(header: Text("Name / title")) {
                         TextField("", text: $productTitle)
                     }
-
-                    Section(header: Text("Description")) {
-                        TextField("", text: $productDescription)
-                    }
-
-                    Section(header: Text("Brand")) {
+                    Section(header: Text("Productname")) {
                         TextField("", text: $productBrand)
                     }
+                    
+                    Section(header: Text("Description")) {
+                        TextField("", text: $productDescription, axis: .vertical)
+                    }
 
-                    Section(header: Text("Store Name")) {
+                    Section(header: Text("Storename")) {
                         TextField("", text: $storeName)
                     }
 
                     Section(header: Text("Website / Link")) {
-                        TextField("", text: $websiteUrl)
+                        TextField("", text: $websiteUrl, axis: .vertical)
                     }
 
                     Section(header: Text("Price")) {

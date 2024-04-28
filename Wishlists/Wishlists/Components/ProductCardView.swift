@@ -30,12 +30,12 @@ struct ProductCardView: View {
                     .frame(width: 160, height: 165)
             }
 
-            NavigationLink(destination: ProductDetailView(product: product)) {
+            NavigationLink(destination: ProductDetailView(product: product, websiteUrl: product.websiteUrl)) {
                 HStack {
                     VStack(alignment: .leading) {
                         HStack {
                             Text(product.productTitle)
-                                .font(.subheadline)
+                                .font(.caption)
                                 .bold()
                                 .foregroundStyle(.black)
                             Spacer()

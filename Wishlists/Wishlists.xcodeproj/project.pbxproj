@@ -21,7 +21,6 @@
 		D96C46EB2BD55C2D000DA2D2 /* ListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46EA2BD55C2D000DA2D2 /* ListCellView.swift */; };
 		D96C46EF2BD80D18000DA2D2 /* AddNewProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46EE2BD80D18000DA2D2 /* AddNewProductDetailView.swift */; };
 		D96C46F32BDA8EAE000DA2D2 /* ProductItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46F22BDA8EAE000DA2D2 /* ProductItemList.swift */; };
-		D96C46F52BDA9337000DA2D2 /* WishListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96C46F42BDA9337000DA2D2 /* WishListViewModel.swift */; };
 		D97BB66B2BDBCF53009B8119 /* Brown Sugar .ttf in Resources */ = {isa = PBXBuildFile; fileRef = D97BB66A2BDBCF53009B8119 /* Brown Sugar .ttf */; };
 		D99400292BDC28D500704FEB /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99400282BDC28D500704FEB /* SplashScreenView.swift */; };
 		D9A60C4F2BDD394C00724EB2 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A60C4E2BDD394C00724EB2 /* HomeViewModel.swift */; };
@@ -69,7 +68,6 @@
 		D96C46EA2BD55C2D000DA2D2 /* ListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellView.swift; sourceTree = "<group>"; };
 		D96C46EE2BD80D18000DA2D2 /* AddNewProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewProductDetailView.swift; sourceTree = "<group>"; };
 		D96C46F22BDA8EAE000DA2D2 /* ProductItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemList.swift; sourceTree = "<group>"; };
-		D96C46F42BDA9337000DA2D2 /* WishListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewModel.swift; sourceTree = "<group>"; };
 		D97BB6652BDBCD05009B8119 /* Brown Sugar .ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Brown Sugar .ttf"; sourceTree = "<group>"; };
 		D97BB6672BDBCD75009B8119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D97BB6682BDBCF34009B8119 /* Brown Sugar .ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Brown Sugar .ttf"; path = "../../../../Desktop/Wants/Brown-Sugar/Brown Sugar .ttf"; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 				D96C46B72BD54856000DA2D2 /* Assets.xcassets */,
 				D96C46B92BD54856000DA2D2 /* Preview Content */,
 				D96C46E92BD554F5000DA2D2 /* Components */,
-				D96C46F42BDA9337000DA2D2 /* WishListViewModel.swift */,
 				D9A60C5C2BDE7E7A00724EB2 /* UnsplashViewModel.swift */,
 			);
 			path = Wishlists;
@@ -389,7 +386,6 @@
 			files = (
 				D96C46DE2BD551DE000DA2D2 /* ListModel.swift in Sources */,
 				D9A60C592BDE7C8800724EB2 /* Alerts.swift in Sources */,
-				D96C46F52BDA9337000DA2D2 /* WishListViewModel.swift in Sources */,
 				D96C46EB2BD55C2D000DA2D2 /* ListCellView.swift in Sources */,
 				D96C46E82BD554EE000DA2D2 /* ProductCardView.swift in Sources */,
 				D96C46E22BD552F9000DA2D2 /* ProductDetailView.swift in Sources */,
