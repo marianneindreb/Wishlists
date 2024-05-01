@@ -38,11 +38,7 @@ struct ListCellView: View {
                                 .cornerRadius(2)
                         }
                     }
-//                    .onDelete { (indexSet) in
-//                        self.list.listItems.remove(atOffsets: indexSet)
-//                    }
                 }
-                
                 Spacer()
             }
             .padding()

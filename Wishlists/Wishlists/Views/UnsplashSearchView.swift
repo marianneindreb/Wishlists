@@ -21,7 +21,7 @@ struct UnsplashSearchView: View {
                     }
                     .padding()
                 }
-                .background(Color.white)
+                .background(Color.bg)
                 .cornerRadius(20)
                 .padding()
                 

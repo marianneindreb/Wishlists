@@ -6,10 +6,17 @@ struct ProductDetailView: View {
     @Environment(\.dismiss) var dismiss
     let websiteUrl: String?
     
+    var productImage: Image? {
+        if let imageData = product.imageData, let uiImage = UIImage(data: imageData) {
+            return Image(uiImage: uiImage)
+        }
+        return nil
+    }
+    
     var body: some View {
         ScrollView {
-            if let imageData = product.imageData, let uiImage = UIImage(data: imageData) {
-                Image(uiImage: uiImage)
+            if let productImage = productImage{
+                productImage
                     .resizable()
                     .scaledToFill()
                     .frame(width: UIScreen.main.bounds.width, height: 500)
@@ -25,18 +32,32 @@ struct ProductDetailView: View {
                         .font(.headline)
                         .bold()
                     Spacer()
-                    Text(product.productPrice)
-                        .font(.caption)
-                        .bold()
+                    ShareLink(
+                        item: product.websiteUrl,
+                        preview: SharePreview(
+                            Text(product.productTitle),
+                            image: productImage ?? Image(systemName: "photo")
+                        )
+                    ) {
+                        Image(systemName: "square.and.arrow.up")
+                            .font(.system(size: 18))
+                            .foregroundColor(.black)
+                    }
                 }
+                
                 Text(product.productBrand)
                     .font(.caption)
+                    .foregroundStyle(.gray)
                     .padding(.bottom, 8)
                 Text(product.productDescription)
+                    .font(.caption)
+                    .padding(.bottom, 18)
+                Text(product.productPrice)
+                    .font(.caption)
+                    .bold()
                     .padding(.bottom, 18)
                 Text(product.storeName)
                     .font(.caption)
-                    .bold()
                     .padding(.bottom, 2)
                 
                 if let websiteUrl = websiteUrl, !websiteUrl.isEmpty {
@@ -49,6 +70,7 @@ struct ProductDetailView: View {
                             }
                     } else {
                         Text("Invalid website URL")
+                            .font(.caption)
                             .foregroundColor(.red)
                     }
                 }
@@ -57,21 +79,23 @@ struct ProductDetailView: View {
         }
         .ignoresSafeArea()
         .navigationBarBackButtonHidden(true)
-         
+        
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button {
                     dismiss()
                 } label: {
-                        Image(systemName: "arrow.backward.circle.fill")
-                        .font(.system(size: 24))
-                            .foregroundStyle(.bg)
+                    Image(systemName: "arrow.backward.circle.fill")
+                        .symbolRenderingMode(.palette)
+                        .foregroundStyle(.black, .white)
+                        .font(.system(size: 26))
                 }
                 .accessibilityLabel("go back")
             }
         }
     }
 }
+
 
 //#Preview {
 //    do {

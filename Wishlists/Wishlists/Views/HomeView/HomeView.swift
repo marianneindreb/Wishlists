@@ -39,7 +39,7 @@ struct HomeView: View {
                     if !lists.isEmpty{
                         ScrollView(showsIndicators: false) {
                             ForEach(lists) { list in
-                                NavigationLink(destination: WishListView(list: list, product: product)) {
+                                NavigationLink(destination: WishListView(list: list, product: product, wishlist: [product])) {
                                     ListCellView(list: list)
                                 }
                                 .padding(5)
@@ -71,7 +71,8 @@ struct HomeView: View {
                                 Button("Cancel", role: .cancel) {}
                             }
                     }
-                    .navigationTitle("My Wishlists")
+                    .navigationTitle("Wishlists")
+                    .toolbarTitleDisplayMode(.automatic)
                     .toolbar {
                         ToolbarItem(placement: .principal) {
                             Image("logo")
@@ -79,6 +80,10 @@ struct HomeView: View {
                                 .scaledToFit()
                                 .frame(width: 24)
                         }
+//                        ToolbarItem(placement: .topBarLeading) {
+//                            Text("Wishlists")
+//                                .font(.custom("Brown Sugar", size: 24))
+//                        }
                        
                     }
                 }

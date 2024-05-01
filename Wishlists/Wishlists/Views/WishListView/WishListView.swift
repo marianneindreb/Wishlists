@@ -6,7 +6,6 @@ struct WishListView: View {
     @Environment(\.dismiss) var dismiss
     @Bindable var list: ListModel
     var product: ProductItem
-    //var products: [ProductItem]
     
     @State private var showAddNewProduct = false
     @State private var showEditListAlert = false
@@ -14,6 +13,7 @@ struct WishListView: View {
     
     @State private var newListTitle = ""
     @State private var newListDescription = ""
+    var wishlist: [ProductItem]
     
     var body: some View {
         ZStack {
@@ -42,15 +42,15 @@ struct WishListView: View {
             }
         }
         
-       .navigationTitle(list.listTitle)
+        .navigationTitle(list.listTitle)
         .navigationBarBackButtonHidden(true)
         .sheet(isPresented: $showAddNewProduct, content: {
             AddNewProductDetailView(list: list)
         })
         .toolbar {
             ToolbarItem(placement: .principal) {
-                    Text(list.listDescription)
-                        .font(.subheadline)
+                Text(list.listDescription)
+                    .font(.subheadline)
             }
             ToolbarItem(placement: .topBarLeading) {
                 Button {
@@ -67,10 +67,6 @@ struct WishListView: View {
                         showEditListAlert = true
                     }
                     .accessibilityLabel("Edit list")
-                    Button("Share List") {
-                        // Add sharing functionality
-                    }
-                    .accessibilityLabel("Share list")
                     Button("Delete List", role: .destructive) {
                         showDeleteActionSheet = true
                     }
@@ -79,7 +75,7 @@ struct WishListView: View {
                     Image(systemName: "ellipsis")
                         .foregroundStyle(.black)
                 }
-                .accessibilityLabel("Menu to edit, delete, or share list")
+                .accessibilityLabel("Menu to edit or delete list")
             }
         }
         .sheet(isPresented: $showAddNewProduct) {
