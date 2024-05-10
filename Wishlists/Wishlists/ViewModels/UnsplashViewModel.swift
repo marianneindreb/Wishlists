@@ -20,6 +20,7 @@ final class UnsplashViewModel: ObservableObject {
                    print("Error: CLIENT_ID environment variable is not set.")
                    return
                }
+        
         let urlString = "https://api.unsplash.com/search/photos?query=\(searchText)&client_id=\(clientID)"
         NetworkManager.shared.searchUnsplash(from: urlString) {
             [weak self] result in

@@ -8,9 +8,9 @@ struct ListCellView: View {
             VStack(alignment: .leading) {
                 HStack{
                     Text(list.listTitle)
-                        .foregroundStyle(.black)
+                        .font(.subheadline)
                         .bold()
-                        .padding(.top, 15)
+                        .foregroundStyle(.black)
                     Spacer()
                     Image(systemName: "arrow.right")
                         .font(.system(size: 14))
@@ -18,10 +18,8 @@ struct ListCellView: View {
                 }
                 Text(list.listDescription)
                     .font(.caption)
-                    .foregroundStyle(.black)
-                
+                    .foregroundStyle(.gray)
                 Spacer()
-                
                 HStack() {
                     ForEach(0..<4, id: \.self) { index in
                         if index < list.listItems.count, let imageData = list.listItems[index].imageData, let uiImage = UIImage(data: imageData) {
@@ -37,11 +35,7 @@ struct ListCellView: View {
                                 .cornerRadius(2)
                         }
                     }
-//                    .onDelete { (indexSet) in
-//                        self.list.listItems.remove(atOffsets: indexSet)
-//                    }
                 }
-                
                 Spacer()
             }
             .padding()
@@ -50,7 +44,7 @@ struct ListCellView: View {
             .cornerRadius(5)
             .shadow(color: Color.gray.opacity(0.1), radius: 10, x: 0, y: 5)
             
-
+            
         }
     }
 }

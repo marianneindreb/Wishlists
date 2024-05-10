@@ -6,7 +6,6 @@ struct WishListView: View {
     @Environment(\.dismiss) var dismiss
     @Bindable var list: ListModel
     var product: ProductItem
-    //var products: [ProductItem]
     
     @State private var showAddNewProduct = false
     @State private var showEditListAlert = false
@@ -14,6 +13,7 @@ struct WishListView: View {
     
     @State private var newListTitle = ""
     @State private var newListDescription = ""
+    var wishlist: [ProductItem]
     
     var body: some View {
         ZStack {
@@ -42,15 +42,15 @@ struct WishListView: View {
             }
         }
         
-       .navigationTitle(list.listTitle)
+        .navigationTitle(list.listTitle)
         .navigationBarBackButtonHidden(true)
         .sheet(isPresented: $showAddNewProduct, content: {
             AddNewProductDetailView(list: list)
         })
         .toolbar {
             ToolbarItem(placement: .principal) {
-                    Text(list.listDescription)
-                        .font(.subheadline)
+                Text(list.listDescription)
+                    .font(.subheadline)
             }
             ToolbarItem(placement: .topBarLeading) {
                 Button {
@@ -67,27 +67,23 @@ struct WishListView: View {
                         showEditListAlert = true
                     }
                     .accessibilityLabel("Edit list")
-                    Button("Share List") {
-                        // Add sharing functionality
-                    }
-                    .accessibilityLabel("Share list")
                     Button("Delete List", role: .destructive) {
                         showDeleteActionSheet = true
                     }
-                    .accessibilityLabel("Delete list with options")
+                    .accessibilityLabel("Delete list")
                 } label: {
                     Image(systemName: "ellipsis")
                         .foregroundStyle(.black)
                 }
-                .accessibilityLabel("Menu to edit, delete, or share list")
+                .accessibilityLabel("Menu to edit or delete list")
             }
         }
         .sheet(isPresented: $showAddNewProduct) {
             AddNewProductDetailView(list: list)
         }
         .alert("Edit List", isPresented: $showEditListAlert) {
-            TextField("New list title", text: $newListTitle)
-            TextField("New list description", text: $newListDescription)
+            TextField("New title", text: $newListTitle)
+            TextField("New description", text: $newListDescription)
             Button("Save") {
                 list.listTitle = newListTitle
                 list.listDescription = newListDescription
@@ -95,16 +91,16 @@ struct WishListView: View {
             Button("Cancel", role: .cancel) {}
         }
         .confirmationDialog(
-            "Delete List",
+            "Do you really want to delete this list?",
             isPresented: $showDeleteActionSheet,
             titleVisibility: .visible
         ) {
-            Button("Delete List", role: .destructive) {
+            Button("Delete list", role: .destructive) {
                 modelContext.delete(list)
             }
             Button("Cancel", role: .cancel) {}
         } message: {
-            Text("Only want to delete a product? Long press on the product to delete")
+            Text("This will permanently remove all items. You can long press a product to delete it individually.")
         }
     }
 }

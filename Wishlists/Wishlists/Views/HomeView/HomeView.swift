@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Wishlists
-//
-//  Created by Marianne Indrebø on 21/04/2024.
-//
-
 import SwiftUI
 import SwiftData
 
@@ -39,7 +32,7 @@ struct HomeView: View {
                     if !lists.isEmpty{
                         ScrollView(showsIndicators: false) {
                             ForEach(lists) { list in
-                                NavigationLink(destination: WishListView(list: list, product: product)) {
+                                NavigationLink(destination: WishListView(list: list, product: product, wishlist: [product])) {
                                     ListCellView(list: list)
                                 }
                                 .padding(5)
@@ -50,7 +43,6 @@ struct HomeView: View {
                         
                     }
                 }
-                
                 VStack {
                     Spacer()
                     HStack {
@@ -58,20 +50,21 @@ struct HomeView: View {
                         CustomAddButton {
                             showAlert = true
                         }
-                            .accessibilityLabel("Button to add new list")
-                            .alert("Add New List", isPresented: $showAlert) {
-                                TextField("Title", text: $newListTitle)
-                                
-                                TextField("Description", text: $newListDescription)
-                                Button("Add") {
-                                    addList()
-                                    newListTitle = ""
-                                    newListDescription = ""
-                                }
-                                Button("Cancel", role: .cancel) {}
+                        .accessibilityLabel("Button to add new list")
+                        .alert("Add New List", isPresented: $showAlert) {
+                            TextField("Title", text: $newListTitle)
+                            
+                            TextField("Description", text: $newListDescription)
+                            Button("Add") {
+                                addList()
+                                newListTitle = ""
+                                newListDescription = ""
                             }
+                            Button("Cancel", role: .cancel) {}
+                        }
                     }
-                    .navigationTitle("My Wishlists")
+                    .navigationTitle("Wishlists")
+                    .toolbarTitleDisplayMode(.automatic)
                     .toolbar {
                         ToolbarItem(placement: .principal) {
                             Image("logo")
@@ -79,7 +72,6 @@ struct HomeView: View {
                                 .scaledToFit()
                                 .frame(width: 24)
                         }
-                       
                     }
                 }
             }

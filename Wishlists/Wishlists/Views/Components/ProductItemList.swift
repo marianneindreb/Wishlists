@@ -17,7 +17,3 @@ struct ProductItemList: View {
             }
     }
 }
-
-//#Preview {
-//    ProductItemList(list: ListModel()) // Example preview data
-
