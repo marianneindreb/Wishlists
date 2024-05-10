@@ -16,11 +16,11 @@ final class UnsplashViewModel: ObservableObject {
     
     func fetchSearchResult(_ searchText: String) {
         print("Fetching search result...")
-      
         guard let clientID = ProcessInfo.processInfo.environment["CLIENT_ID"] else {
                    print("Error: CLIENT_ID environment variable is not set.")
                    return
                }
+        
         let urlString = "https://api.unsplash.com/search/photos?query=\(searchText)&client_id=\(clientID)"
         NetworkManager.shared.searchUnsplash(from: urlString) {
             [weak self] result in

@@ -5,7 +5,7 @@ struct UnsplashSearchView: View {
     @ObservedObject var vm: UnsplashViewModel
     @State private var searchText = ""
     @Binding var selectedImageData: Data?
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -24,7 +24,6 @@ struct UnsplashSearchView: View {
                 .background(Color.bg)
                 .cornerRadius(20)
                 .padding()
-                
                 ScrollView {
                     LazyVGrid(columns: [GridItem(), GridItem()]) {
                         ForEach(vm.photos) { photo in
@@ -44,7 +43,6 @@ struct UnsplashSearchView: View {
                     }
                 }
             }
-            
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Image("unsplash_logo")
@@ -73,16 +71,16 @@ struct UnsplashSearchView: View {
             }
         }
     }
-
+    
     private func fetchImageDataAsync(from url: String) {
         NetworkManager.shared.searchUnsplash(from: url) { result in
             DispatchQueue.main.async {
                 switch result {
-                    case .success(let data):
+                case .success(let data):
                     self.selectedImageData = data
-                        self.dismiss()
-                    case .failure(let error):
-                        print("Failed to fetch image data: \(error)")
+                    self.dismiss()
+                case .failure(let error):
+                    print("Failed to fetch image data: \(error)")
                 }
             }
         }

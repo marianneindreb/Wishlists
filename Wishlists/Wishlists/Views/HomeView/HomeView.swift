@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Wishlists
-//
-//  Created by Marianne Indrebø on 21/04/2024.
-//
-
 import SwiftUI
 import SwiftData
 
@@ -50,7 +43,6 @@ struct HomeView: View {
                         
                     }
                 }
-                
                 VStack {
                     Spacer()
                     HStack {
@@ -58,18 +50,18 @@ struct HomeView: View {
                         CustomAddButton {
                             showAlert = true
                         }
-                            .accessibilityLabel("Button to add new list")
-                            .alert("Add New List", isPresented: $showAlert) {
-                                TextField("Title", text: $newListTitle)
-                                
-                                TextField("Description", text: $newListDescription)
-                                Button("Add") {
-                                    addList()
-                                    newListTitle = ""
-                                    newListDescription = ""
-                                }
-                                Button("Cancel", role: .cancel) {}
+                        .accessibilityLabel("Button to add new list")
+                        .alert("Add New List", isPresented: $showAlert) {
+                            TextField("Title", text: $newListTitle)
+                            
+                            TextField("Description", text: $newListDescription)
+                            Button("Add") {
+                                addList()
+                                newListTitle = ""
+                                newListDescription = ""
                             }
+                            Button("Cancel", role: .cancel) {}
+                        }
                     }
                     .navigationTitle("Wishlists")
                     .toolbarTitleDisplayMode(.automatic)
@@ -80,11 +72,6 @@ struct HomeView: View {
                                 .scaledToFit()
                                 .frame(width: 24)
                         }
-//                        ToolbarItem(placement: .topBarLeading) {
-//                            Text("Wishlists")
-//                                .font(.custom("Brown Sugar", size: 24))
-//                        }
-                       
                     }
                 }
             }

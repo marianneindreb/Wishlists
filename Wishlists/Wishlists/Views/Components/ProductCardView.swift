@@ -3,26 +3,24 @@ import SwiftData
 
 struct ProductCardView: View {
     @Environment(\.modelContext) var modelContext
-    // @Environment(NavigationContext.self) private var navigationContext
     @State private var showDeleteConfirmation = false
     var product: ProductItem
     var list: ListModel
     
     private func deleteItem(_ product: ProductItem) {
-            DispatchQueue.main.async {
-                do {
-                    modelContext.delete(product)
-                    try modelContext.save()
-
-                    if let index = list.listItems.firstIndex(of: product) {
-                        list.listItems.remove(at: index)
-                    }
-                } catch {
-                    print("Error during deletion:", error.localizedDescription)
+        DispatchQueue.main.async {
+            do {
+                modelContext.delete(product)
+                try modelContext.save()
+                
+                if let index = list.listItems.firstIndex(of: product) {
+                    list.listItems.remove(at: index)
                 }
+            } catch {
+                print("Error during deletion:", error.localizedDescription)
             }
         }
-
+    }
     
     var body: some View {
         
@@ -58,7 +56,6 @@ struct ProductCardView: View {
                     .padding(.horizontal, 5)
                 }
             }
-            
             Spacer()
         }
         .onLongPressGesture {

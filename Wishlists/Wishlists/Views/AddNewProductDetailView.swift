@@ -6,7 +6,6 @@ import PhotosUI
 struct AddNewProductDetailView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) var modelContext
-
     @ObservedObject var vm = UnsplashViewModel()
     var list: ListModel
     
@@ -21,36 +20,32 @@ struct AddNewProductDetailView: View {
     @State private var storeName: String = ""
     @State private var websiteUrl: String = ""
     @State private var productPrice: String = ""
-
+    
     func saveProduct() {
-      
-            let newProduct = ProductItem(
-                imageData: unsplashImageData ?? imageData,
-                productTitle: productTitle,
-                productDescription: productDescription,
-                productBrand: productBrand,
-                storeName: storeName,
-                websiteUrl: websiteUrl,
-                productPrice: productPrice
-            )
-
-            list.listItems.append(newProduct)
-            modelContext.insert(newProduct)
-        
+        let newProduct = ProductItem(
+            imageData: unsplashImageData ?? imageData,
+            productTitle: productTitle,
+            productDescription: productDescription,
+            productBrand: productBrand,
+            storeName: storeName,
+            websiteUrl: websiteUrl,
+            productPrice: productPrice
+        )
+        list.listItems.append(newProduct)
+        modelContext.insert(newProduct)
     }
-
+    
     var body: some View {
         NavigationView {
             ZStack {
                 Color.bg.edgesIgnoringSafeArea(.all)
                 Form {
                     if let uiImage = (unsplashImageData ?? imageData).flatMap({ UIImage(data: $0) }) {
-                                          Image(uiImage: uiImage)
-                                              .resizable()
-                                              .scaledToFill()
-                                              .frame(maxWidth: .infinity, maxHeight: 300)
-                                      }
-
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(maxWidth: .infinity, maxHeight: 300)
+                    }
                     Section(header: Text("Add Photo From")) {
                         HStack {
                             PhotosPicker(selection: $selectedImage, matching: .images, photoLibrary: .shared()) {
@@ -70,7 +65,7 @@ struct AddNewProductDetailView: View {
                         }
                         .buttonStyle(BorderlessButtonStyle())
                     }
-
+                    
                     Section(header: Text("Name / title")) {
                         TextField("", text: $productTitle)
                     }
@@ -81,15 +76,15 @@ struct AddNewProductDetailView: View {
                     Section(header: Text("Description")) {
                         TextField("", text: $productDescription, axis: .vertical)
                     }
-
+                    
                     Section(header: Text("Storename")) {
                         TextField("", text: $storeName)
                     }
-
+                    
                     Section(header: Text("Website / Link")) {
                         TextField("", text: $websiteUrl, axis: .vertical)
                     }
-
+                    
                     Section(header: Text("Price")) {
                         TextField("", text: $productPrice)
                     }
@@ -104,10 +99,8 @@ struct AddNewProductDetailView: View {
                         }
                         .accessibilityLabel("Dismiss")
                     }
-
                     ToolbarItem(placement: .topBarTrailing) {
                         let buttonDisabled = productTitle.isEmpty
-                        
                         Button {
                             if !buttonDisabled {
                                 saveProduct()
@@ -122,7 +115,6 @@ struct AddNewProductDetailView: View {
                         .disabled(buttonDisabled)
                     }
                 }
-
                 .task(id: selectedImage) {
                     if let data = try? await selectedImage?.loadTransferable(type: Data.self) {
                         imageData = data

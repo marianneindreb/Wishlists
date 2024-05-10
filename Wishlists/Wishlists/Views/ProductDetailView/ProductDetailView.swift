@@ -58,7 +58,7 @@ struct ProductDetailView: View {
                     .padding(.bottom, 18)
                 Text(product.storeName)
                     .font(.caption)
-                    .padding(.bottom, 2)
+                    .padding(.bottom, 1)
                 
                 if let websiteUrl = websiteUrl, !websiteUrl.isEmpty {
                     if let url = URL(string: websiteUrl), UIApplication.shared.canOpenURL(url) {
