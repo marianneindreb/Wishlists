@@ -126,17 +126,3 @@ struct AddNewProductDetailView: View {
         }
     }
 }
-
-
-
-//#Preview {
-//    do {
-//        let config = ModelConfiguration(isStoredInMemoryOnly: true)
-//        let container = try ModelContainer(for: ProductItem.self, configurations: config)
-//        let example = ProductItem(imageData: nil, productTitle: "", productDescription: "", productBrand: "", storeName: "", websiteUrl: "", productPrice: "" )
-//        return AddNewProductDetailView(product: example)
-//            .modelContainer(container)
-//    } catch {
-//        fatalError("Failed to create model container")
-//    }
-//}

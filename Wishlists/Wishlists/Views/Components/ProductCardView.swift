@@ -68,8 +68,6 @@ struct ProductCardView: View {
             titleVisibility: .visible
         ) {
             Button("Delete", role: .destructive) {
-                
-                //  modelContext.delete(product)
                 deleteItem(product)
             }
             Button("Cancel", role: .cancel) {}

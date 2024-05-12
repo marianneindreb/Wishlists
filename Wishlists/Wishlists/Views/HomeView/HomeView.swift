@@ -40,7 +40,6 @@ struct HomeView: View {
                         }
                     } else {
                         Text("Add new list to get started")
-                        
                     }
                 }
                 VStack {
