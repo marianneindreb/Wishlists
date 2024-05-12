@@ -16,7 +16,7 @@ struct CustomAddButton: View {
                     .foregroundStyle(.black)
             }
         }
-        .padding(30) 
+        .padding(30)
     }
 }
 
